@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastify-demo
+  template:
+    metadata:
+      labels:
+        app: fastifiy-demo
+    spec:
+      containers:
+      - name: webserver-simple
+        image: docker.io/rcdelacruz/fastify-demo-pi:51d625ad-3-4
+        ports:
+        - containerPort: 3000
